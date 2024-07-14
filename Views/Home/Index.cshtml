@@ -10,7 +10,7 @@
 
 <form asp-controller="Home" asp-action="Subir" method="post" enctype="multipart/form-data">
     <div class="form-group">
-        <label for="xmlFile">Select XML file</label>
+        <label for="xmlFile">Seleccione un archivo XML</label>
         <input type="file" name="xmlFile" class="form-control" required />
     </div>
     <button type="submit" class="btn btn-primary">Subir</button>
@@ -22,20 +22,16 @@
     <table class="table">
         <thead>
             <tr>
-                <th>Id</th>
-                <th>Nombre</th>
-                <th>Precio</th>
-                <th>Cantidad</th>
+                <th>Descripcion</th>
+                <th>Valor Unitario</th>
             </tr>
         </thead>
         <tbody>
             @foreach (var material in Model)
             {
                 <tr>
-                    <td>@material.Id</td>
-                    <td>@material.Nombre</td>
-                    <td>@material.Precio</td>
-                    <td>@material.Cantidad</td>
+                    <td>@material.Descripcion</td>
+                    <td>@material.ValorUnitario</td>
                 </tr>
             }
         </tbody>

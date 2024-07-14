@@ -10,6 +10,8 @@ namespace ElectroWeb.Models
         public string Nombre { get; set; }
         public decimal Precio { get; set; }
         public int Cantidad { get; set; }
+        public string Descripcion { get; set; }  // Nueva propiedad
+        public decimal ValorUnitario { get; set; }  // Nueva propiedad
     }
 
 }

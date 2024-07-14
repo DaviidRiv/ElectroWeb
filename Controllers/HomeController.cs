@@ -38,16 +38,14 @@ namespace ElectroWeb.Controllers
             {
                 XDocument xdoc = XDocument.Load(stream);
 
-                var materialNodes = xdoc.XPathSelectElements("//Material");
+                var conceptoNodes = xdoc.Descendants("{http://www.sat.gob.mx/cfd/4}Concepto");
 
-                foreach (var node in materialNodes)
+                foreach (var node in conceptoNodes)
                 {
                     MaterialModel material = new MaterialModel
                     {
-                        Id = int.Parse(node.Element("Id").Value),
-                        Nombre = node.Element("Nombre").Value,
-                        Precio = decimal.Parse(node.Element("Precio").Value),
-                        Cantidad = int.Parse(node.Element("Cantidad").Value)
+                        Descripcion = node.Attribute("Descripcion")?.Value,
+                        ValorUnitario = decimal.Parse(node.Attribute("ValorUnitario")?.Value)
                     };
 
                     materials.Add(material);
